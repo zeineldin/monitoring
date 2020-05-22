@@ -12,4 +12,4 @@ you have to check
 
 
 1. Firewall "allow cadvisor and Node-Exporter ports and ips for the machine you want to see the dashboard"
-      - targets: ['<ip>:<port>','<ip>:<port>']
+     ``` - targets: ['<ip>:<port>','<ip>:<port>']```

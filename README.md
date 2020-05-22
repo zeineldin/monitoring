@@ -1,5 +1,10 @@
+( Docker / Host ) Monitoring with cAdvisor,Node-Exporter & Prometheus and Grafana
 
-# Monitoring Client
+
+![prom2](https://user-images.githubusercontent.com/20526165/82630796-10899900-9bf4-11ea-8815-5a373c604b6c.png)
+
+
+## Monitoring Client
 # Cadvisor, Node Exporter
 
 you have to check 
@@ -7,7 +12,7 @@ you have to check
 1. Firewall "allow cadvisor and Node-Exporter ports and ips between server and client"
 
 
-# Monitoring Server 
+## Monitoring Server 
 # Prometheus, Grafana 
 
 

@@ -1,10 +1,9 @@
 
-
-
-1. configure vim prometheus/prometheus.yml
+## configure vim prometheus/prometheus.yml
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
+```
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
 
@@ -25,3 +24,4 @@ scrape_configs:
             #  - targets: ['nodeexporter:9100']
       - targets: ['nodeexporter:9100']
 
+```

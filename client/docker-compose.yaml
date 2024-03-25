@@ -13,6 +13,14 @@ services:
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 300M
+        reservations:
+          cpus: '0.0001'
+          memory: 200M
     ports:
       - 9988:9100
 
@@ -27,5 +35,17 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
       - /dev/disk/:/dev/disk:ro
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.001'
+          memory: 300M
+        reservations:
+          cpus: '0.0001'
+          memory: 200M
     ports:
       - 8899:8080
+
+
+
+# remove all exited containers $docker rm $(docker ps -q -f status=exited)

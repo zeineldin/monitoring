@@ -25,8 +25,9 @@ services:
       - 9988:9100
 
   cadvisor:
+    image: gcr.io/cadvisor/cadvisor
     #image: gcr.io/google-containers/cadvisor:latest
-    image:: google/cadvisor
+    #image:: google/cadvisor
     container_name: cadvisor
     volumes:
       - /:/rootfs:ro

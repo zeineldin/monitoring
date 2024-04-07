@@ -1,14 +1,11 @@
-name: remote ssh command
+name: push latest code to the server
 on: [push]
 jobs:
-
   build:
     name: Build
     runs-on: ubuntu-latest
     steps:
     - name: install ssh keys
-      # check this thread to understand why its needed:
-      # https://stackoverflow.com/a/70447517
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
         echo "${{ secrets.DEV_PASSWORD }}" > ~/.ssh/id_rsa

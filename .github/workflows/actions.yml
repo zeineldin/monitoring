@@ -6,11 +6,22 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.DEV_HOST }}
-        username: ${{ secrets.DEV_USERNAME }}
-        password: ${{ secrets.DEV_PASSWORD }}
-        port: 22
-        script: whoami
+    - name: install ssh keys
+      # check this thread to understand why its needed:
+      # https://stackoverflow.com/a/70447517
+      run: |
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.DEV_PASSWORD }}" > ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.DEV_HOST }} > ~/.ssh/known_hosts
+    - name: connect and pull
+      run: ssh ${{ secrets.DEV_USERNAME }}@${{ secrets.DEV_PASSWORD }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
+      
+        
+#    - name: executing remote ssh commands using password
+#      uses: appleboy/ssh-action@v1.0.3
+#      with:
+#        host: ${{ secrets.DEV_HOST }}
+#        username: ${{ secrets.DEV_USERNAME }}
+#        password: ${{ secrets.DEV_PASSWORD }}
+#        port: 22
+#        script: whoami

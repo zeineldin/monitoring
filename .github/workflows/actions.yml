@@ -15,7 +15,7 @@ jobs:
         ssh-keyscan -H 46.101.99.38 > ~/.ssh/known_hosts
     - name: connect and pull
    #  run: ssh ${{ secrets.DEV_USERNAME }}@${{ secrets.DEV_PASSWORD }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
-      run: ssh ci-cd@46.101.99.38 "pwd" 
+      run: ssh ci-cd@46.101.99.38 "pwd && cd home/ci-cd/airotax && git pull && exit" 
         
 #    - name: executing remote ssh commands using password
 #      uses: appleboy/ssh-action@v1.0.3

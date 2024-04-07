@@ -14,4 +14,4 @@ jobs:
         echo "${{ secrets.DEV_PASSWORD }}" > ~/.ssh/id_rsa
         ssh-keyscan -H ${{ secrets.DEV_HOST }} > ~/.ssh/known_hosts
     - name: connect and pull
-      run: ssh  ${{ secrets.DEV_USERNAME }}@${{ secrets.DEV_HOST }} "pwd && git status && whoami && cd /home/ci-cd/airotax/monitoring && git pull && exit" 
+      run: ssh  ${{ secrets.DEV_USERNAME }}@${{ secrets.DEV_HOST }} "pwd && whoami && cd /home/ci-cd/airotax/monitoring && git status && git pull && exit" 
